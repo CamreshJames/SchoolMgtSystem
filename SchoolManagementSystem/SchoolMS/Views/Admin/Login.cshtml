@@ -1,0 +1,101 @@
+﻿@model SchoolMS.Models.Admin
+
+@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<h1 class="text-center">Admin Login</h1>
+<div class="row bg-light shadow">
+    <div class="col-6 mt-4 p-2 m-2 bg-info border-2 border-success">
+        <div class="card m-auto" style="position: sticky; top: 0;">
+            <div class="content">
+                <p class="heading">
+                    <i class='bx bxs-right-arrow'></i><span id="welcomeText"></span>
+                </p>
+                <p class="para">
+                Thank you for being part of our school community.
+                As an admin, you play a crucial role in managing and overseeing the school's operations.
+                Feel free to explore the admin dashboard and utilize the various tools and features available to you.
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-5 border-2 m-auto p-2 m-2">
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        <!-- Display success message -->
+        @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+        {
+            <div class="alert alert-success">
+                @ViewBag.SuccessMessage
+            </div>
+        }
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label for="Username">Username:</label>
+                <input type="text" class="form-control" id="Username" name="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>
+<script>
+    var welcomeTexts = ["Welcome Admin","Monitor", "Oversee EveryThing", "Lets Take Control"];
+    var currentIndex = 0;
+    var welcomeTextElement = document.getElementById("welcomeText");
+
+    function typeText(text, callback) {
+        var index = 0;
+        var typingInterval = setInterval(function () {
+            welcomeTextElement.textContent += text[index];
+            index++;
+
+            if (index >= text.length) {
+                clearInterval(typingInterval);
+                callback();
+            }
+        }, 100);
+    }
+
+    function deleteText(callback) {
+        var text = welcomeTextElement.textContent;
+        var index = text.length - 1;
+        var deletingInterval = setInterval(function () {
+            welcomeTextElement.textContent = text.substring(0, index);
+            index--;
+
+            if (index < 0) {
+                clearInterval(deletingInterval);
+                callback();
+            }
+        }, 50);
+    }
+
+    function displayWelcomeText() {
+        var welcomeText = welcomeTexts[currentIndex];
+        typeText(welcomeText, function () {
+            setTimeout(function () {
+                deleteText(function () {
+                    currentIndex++;
+                    if (currentIndex >= welcomeTexts.length) {
+                        currentIndex = 0;
+                    }
+                    displayWelcomeText();
+                });
+            }, 2000);
+        });
+    }
+
+    displayWelcomeText();
+</script>
+

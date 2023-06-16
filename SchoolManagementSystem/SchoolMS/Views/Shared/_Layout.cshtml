@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SchoolMS</title>
+    <link rel="icon" href="~/favicon1.png" type="image/x-icon">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SchoolMS.styles.css" asp-append-version="true" />
@@ -26,13 +27,31 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class='bx bx-home'></i>&nbsp;Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class='bx bx-fingerprint'></i>&nbsp;Privacy</a>
                         </li>
+                        
                     </ul>
-                </div>
+                        <a class="nav-link text-success " asp-area="" asp-controller="Admin" asp-action="Index"><i class='bx bxs-invader'></i>&nbsp;Admin</a>
+                    @using Microsoft.AspNetCore.Http
+
+                    @{
+                        var session = ViewContext.HttpContext.Session;
+                        var username = session.GetString("Username");
+                    }
+
+                    @if (!string.IsNullOrEmpty(username))
+                    {
+                        <form method="post" action="@Url.Action("Logout", "Admin")">
+                            <button class="btn btn-info" type="submit">Admin Logout</button>
+                        </form>
+                    }
+
+                    
+
+                    </div>
             </div>
         </nav>
     </header>
