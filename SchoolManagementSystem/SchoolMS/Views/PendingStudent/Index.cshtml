@@ -1,0 +1,140 @@
+﻿@model SchoolMS.Models.PendingStudent
+
+@{
+    ViewData["Title"] = "Apply";
+}
+
+<h1 class="text-center">Register</h1>
+<div class="row bg-light shadow">
+    <div class="col-6 mt-4 p-2 m-2 bg-info">
+        <div class="card m-auto" style=" position: sticky; top: 0;">
+            <div class="content">
+                <p class="heading">
+                    <i class='bx bxs-right-arrow'></i><span id="welcomeText"></span>
+                </p>
+                <p class="para">
+                    Welcome to an exciting journey of learning, growth, and new possibilities.
+                    We are thrilled to have you join our school community.
+                    Explore the diverse range of courses, engage with passionate teachers, and unleash your potential.
+                </p>
+            </div>
+        </div>
+    
+</div>
+    <div class="col-5 border-2 m-auto p-2 m-2">
+            <form asp-action="Index" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Study Program:</label>
+                <select asp-for="StudyProgram" class="form-control" asp-items="ViewBag.Program"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="Name" name="Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="PhoneNumber">Phone Number:</label>
+                <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <select class="form-control" id="Gender" name="Gender" required>
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="GuardianName">Guardian Name:</label>
+                <input type="text" class="form-control" id="GuardianName" name="GuardianName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="GuardianPhone">Guardian Phone:</label>
+                <input type="text" class="form-control" id="GuardianPhone" name="GuardianPhone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Nationality">Nationality:</label>
+                <input type="text" class="form-control" id="Nationality" name="Nationality" required>
+            </div>
+
+            <div class="form-group">
+                <label for="NationalId">National ID:</label>
+                <input type="text" class="form-control" id="NationalId" name="NationalId" required>
+            </div>
+
+            <div class="form-group">
+                <label for="County">County:</label>
+                <input type="text" class="form-control" id="County" name="County" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Address">Address:</label>
+                <textarea class="form-control" id="Address" name="Address" required></textarea>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary w-100 mt-1">Apply</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var welcomeTexts = ["Welcome", "Congrats", "You are the best", "Make a change in the world"];
+    var currentIndex = 0;
+    var welcomeTextElement = document.getElementById("welcomeText");
+
+    function typeText(text, callback) {
+        var index = 0;
+        var typingInterval = setInterval(function () {
+            welcomeTextElement.textContent += text[index];
+            index++;
+
+            if (index >= text.length) {
+                clearInterval(typingInterval);
+                callback();
+            }
+        }, 100);
+    }
+
+    function deleteText(callback) {
+        var text = welcomeTextElement.textContent;
+        var index = text.length - 1;
+        var deletingInterval = setInterval(function () {
+            welcomeTextElement.textContent = text.substring(0, index);
+            index--;
+
+            if (index < 0) {
+                clearInterval(deletingInterval);
+                callback();
+            }
+        }, 50);
+    }
+
+    function displayWelcomeText() {
+        var welcomeText = welcomeTexts[currentIndex];
+        typeText(welcomeText, function () {
+            setTimeout(function () {
+                deleteText(function () {
+                    currentIndex++;
+                    if (currentIndex >= welcomeTexts.length) {
+                        currentIndex = 0;
+                    }
+                    displayWelcomeText();
+                });
+            }, 2000);
+        });
+    }
+
+    displayWelcomeText();
+</script>

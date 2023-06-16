@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Page";
+    
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card m-auto">
+                <div class="content">
+                    <p class="heading"><h1>Welcome to the Admin Page @ViewBag.AdminName</h1></p>
+                    <div class="row">
+                        <div class="col-5 m-auto">
+                        <button class="btn btn-primary "><a class="nav-link" asp-area="" asp-controller="Lecturers" asp-action="PendingLecturers">PendingLecturers</a></button>
+                        </div>
+                        <div class="col-5 m-auto">
+                            <button class="btn btn-secondary "><a class="nav-link" asp-area="" asp-controller="Students" asp-action="PendingStudents">PendingStudents</a></button>
+                        </div>
+                    </div>
+                    <p> admin dashboard.</p>
+                    <div class="row">
+                        <div class="col-2 m-auto">
+                            <button class="btn btn-primary"><a class="nav-link" asp-area="" asp-controller="StudyPrograms" asp-action="index">Programs</a></button>
+                        </div>
+                        <div class="col-2 m-auto">
+                            <button class="btn btn-secondary"><a class="nav-link" asp-area="" asp-controller="Students" asp-action="index">Students</a></button>
+                        </div>
+                        
+                        <div class="col-2 m-auto">
+                            <button class="btn btn-success"><a class="nav-link" asp-area="" asp-controller="Lecturers" asp-action="index">Lecturers</a></button>
+                        </div>
+                        <div class="col-2 m-auto">
+                            <button class="btn btn-success"><a class="nav-link" asp-area="" asp-controller="Schools" asp-action="index">Schools</a></button>
+                        </div>
+                        <div class="col-2 m-auto">
+                            <button class="btn btn-success"><a class="nav-link" asp-area="" asp-controller="Courses" asp-action="index">Courses</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        
+    </div>
+</div>

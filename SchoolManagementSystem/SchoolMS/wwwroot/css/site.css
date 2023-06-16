@@ -28,14 +28,13 @@ body {
 /* button styling */
 .button {
     --border-right: 6px;
-    --text-stroke-color: rgba(36, 103, 72, 0.6);
-    --animation-color: #4800ff;
+    --text-stroke-color: rgb(26, 24, 24);
+    --animation-color: #1C8B00;
     --fs-size: 1.5em;
     text-decoration: none;
     font-size: var(--fs-size);
     font-family: "arial";
     position: relative;
-    text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 1px var(--text-stroke-color);
 }
@@ -57,4 +56,73 @@ body {
 .button:hover .hover-text {
     width: 100%;
     filter: drop-shadow(0 0 23px var(--animation-color))
+}
+.card {
+    position: relative;
+    background-color:aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    padding: 32px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #000000;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content .heading {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.content .para {
+    line-height: 1.5;
+}
+
+.content .btn {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to right, #0C271F, #18453B);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card{
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover {
+    background: linear-gradient(-45deg, #333333, #555555);
+}
+
+.card:hover {
+    box-shadow: none;
+}
+.card:hover .btn {
+    color: #1D7D05;
+    background: #e8e8e8;
+}
+.card:hover .content {
+    color: #e8e8e8;
+}
+.content .btn:hover {
+    outline: 2px solid #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
+}
+.content .btn:active {
+    box-shadow: none;
 }
