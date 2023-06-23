@@ -1,0 +1,24 @@
+﻿@{
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="heading">Check Status</div>
+                <form asp-action="Status" method="post">
+                    <div class="form-group">
+                        <label for="nameInput">Name:</label>
+                        <input type="text" class="form-control" id="nameInput" name="Name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nationalIdInput">National ID:</label>
+                        <input type="text" class="form-control" id="nationalIdInput" name="NationalId" placeholder="Enter your national ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

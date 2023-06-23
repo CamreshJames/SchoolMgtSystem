@@ -5,34 +5,65 @@
     <div class="col-6 m-auto">
         <div class="card m-auto">
             <div class="content">
-                <p class="heading">
-                    Welcome to SchoolMS!
-                </p>
-                <p class="para">
+                <div class="card-header">
+                    <h3 class="card-title">Welcome to SchoolMS!</h3>
+                </div>
+                <div class="card-body">
                     <h1>Lectures</h1>
-                    Welcome to an exciting journey of learning, growth, and new possibilities.
-                    We are thrilled to have you join our school community.
-                    Explore the diverse range of courses, engage with passionate teachers, and unleash your potential.
-                </p>
-                <button class="btn"><a class="nav-link text-white" asp-area="" asp-controller="PendingLecturer" asp-action="index">Register Now</a></button>
+                    <p>
+                        Welcome to an inspiring community of educators, where your expertise and passion will ignite the minds of eager learners.
+                        We are delighted to have you as part of our faculty, dedicated to shaping the future through education.
+                        Share your knowledge, mentor aspiring individuals, and unlock the endless possibilities of teaching.
+                        Together, let's embark on a journey of transformation, innovation, and the joy of imparting wisdom.
+                    </p>
+                    <button class="btn btn-primary">
+                        <a class="text-white" asp-area="" asp-controller="PendingLecturer" asp-action="index">Register Now</a>
+                    </button>
+                </div>
             </div>
         </div>
+
     </div>
     <div class="col-6 m-auto">
         <div class="card m-auto">
             <div class="content">
-                <p class="heading">
-                    Apply to Join SchoolMS
-                </p>
-                <p class="para">
+                <div class="card-header">
+                    <h3 class="card-title">Apply to Join SchoolMS</h3>
+                </div>
+                <div class="card-body">
                     <h1>Students</h1>
-                    Ready to embark on a transformative educational experience?
-                    Apply now to join SchoolMS and unlock a world of knowledge, opportunities, and friendships.
-                    Our dedicated team is here to guide you through the application process and support your aspirations.
-                </p>
-                <button class="btn"><a class="nav-link text-white" asp-area="" asp-controller="PendingStudent" asp-action="index">Apply Now</a></button>
+                    <p>
+                        Ready to embark on a transformative educational experience?
+                        Apply now to join SchoolMS and unlock a world of knowledge, opportunities, and friendships.
+                        Our dedicated team is here to guide you through the application process and support your aspirations.
+                    </p>
+                    <details class="p-3">
+                        <summary><i class='bx bxs-graduation'></i> Click Student Activities</summary>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>To Join The School</p>
+                                <button class="btn btn-primary">
+                                    <a class="text-white" asp-area="" asp-controller="PendingStudent" asp-action="index">Apply Now</a>
+                                </button>
+                            </li>
+                            <li>
+                                <p>Already Applied? Check Status</p>
+                                <button class="btn btn-primary">
+                                    <a class="text-white" asp-area="" asp-controller="StudentsHome" asp-action="Status">Check Status</a>
+                                </button>
+                            </li>
+                            <li>
+                                <p>Am a Student here</p>
+                                <button class="btn btn-primary">
+                                    <a class="text-white" asp-area="" asp-controller="StudentsHome" asp-action="Login">Login</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 @model List<SchoolMS.Models.Student>

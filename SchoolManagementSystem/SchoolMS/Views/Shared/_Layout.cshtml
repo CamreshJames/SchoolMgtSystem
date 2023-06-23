@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var session = ViewContext.HttpContext.Session;
+    var username = session.GetString("Username");
+    var student = session.GetString("Student");
+    var lecturer = session.GetString("Lecturer");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,67 +16,251 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SchoolMS.styles.css" asp-append-version="true" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        footer.footer {
+            margin-top: auto;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                     <button data-text="SchoolMS" class="button">
-                        <span class="actual-text">&nbsp;<i class='bx bxs-school'></i>&nbsp;SchoolMS&nbsp;</span>
-                        <span class="hover-text" aria-hidden="true">&nbsp;<i class='bx bxs-school'></i>&nbsp;SchoolMS&nbsp;</span>
-                    </button>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <!-- Main Header -->
+    <header class="main-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class='bx bx-menu'></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class='bx bx-home'></i>&nbsp;Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy"><i class='bx bx-fingerprint'></i>&nbsp;Privacy</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <a class="nav-link @(string.IsNullOrEmpty(student) ? "" : "text-decoration-underline shadow")" asp-area="" asp-controller="StudentsHome" asp-action="Index">
+                    <i class='bx bxs-graduation'></i>&nbsp;Students Portal
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class='bx bx-home'></i>&nbsp;Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class='bx bx-fingerprint'></i>&nbsp;Privacy</a>
-                        </li>
-                        
-                    </ul>
-                        <a class="nav-link text-success " asp-area="" asp-controller="Admin" asp-action="Index"><i class='bx bxs-invader'></i>&nbsp;Admin</a>
-                    @using Microsoft.AspNetCore.Http
+                <a class="nav-link @(string.IsNullOrEmpty(lecturer) ? "" : "text-decoration-underline shadow")" asp-area="" asp-controller="LecturersHome" asp-action="Index">
+                    <i class='bx bx-compass'></i>&nbsp;Lecturers Portal
+                </a>
+            </ul>
 
-                    @{
-                        var session = ViewContext.HttpContext.Session;
-                        var username = session.GetString("Username");
-                    }
 
-                    @if (!string.IsNullOrEmpty(username))
-                    {
-                        <form method="post" action="@Url.Action("Logout", "Admin")">
-                            <button class="btn btn-info" type="submit">Admin Logout</button>
-                        </form>
-                    }
-
-                    
-
-                    </div>
-            </div>
         </nav>
+        <!-- /.navbar -->
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <div class="wrapper">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - SchoolMS | Camresh-James | - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a class="brand-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <span class="brand-text font-weight-light">&nbsp;<i class='bx bxs-school'></i>&nbsp;SchoolMS&nbsp;</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class='bx bx-home'></i>
+                                <p>Home</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                <i class='bx bx-fingerprint'></i>
+                                <p>Privacy</p>
+                            </a>
+                        </li>
+
+                        @if (!string.IsNullOrEmpty(student))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="StudentsHome" asp-action="Index">
+                                    <i class='bx bxs-dashboard'></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="StudentsHome" asp-action="Profile">
+                                    <i class='bx bxs-user-circle'></i>
+                                    <p>Profile</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="StudentsHome" asp-action="Courses">
+                                    <i class='bx bxs-book-content'></i>
+                                    <p>Courses</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class='bx bx-task'></i>
+                                    <p>Grades</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class='bx bx-walk'></i>
+                                    <p>Attendance</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class='bx bxs-cog'></i>
+                                    <p>Settings</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="StudentsHome" asp-action="ClubRegister">
+                                    <i class="fas fa-people-carry"></i>
+
+                                    <p>Clubs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="StudentsHome" asp-action="NoticeBoard">
+                                    <i class='bx bx-notepad'></i>
+                                    <p>Notice Board</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="StudentsHome" asp-action="Logout">
+                                    <i class='bx bx-log-out-circle'></i>
+                                    <p>Logout</p>
+                                </a>
+                            </li>
+                    }
+
+                    @if (!string.IsNullOrEmpty(lecturer))
+                    {
+                        <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="LecturersHome" asp-action="Index">
+                                <i class='bx bxs-dashboard'></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class='bx bxs-book-content'></i>
+                                <p>Courses</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class='bx bx-task'></i>
+                                <p>Grades</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class='bx bx-walk'></i>
+                                <p>Attendance</p>
+                            </a>
+                        </li> <li class="nav-item">
+                                <a class="nav-link" asp-controller="NoticeBoard" asp-action="index">
+                                    <i class='bx bx-notepad'></i>
+                                <p>Notice Board</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="LecturersHome" asp-action="Profile">
+                                <i class='bx bxs-user-circle'></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="LecturersHome" asp-action="Logout">
+                                <i class='bx bx-log-out-circle'></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    }
+                        @if (!string.IsNullOrEmpty(username))
+                        {
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
+                                        <i class='bx bxs-invader'></i>
+                                        <p>Admin Dashboard</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Clubs" asp-action="Index">
+                                    <i class="fa-solid fa-club"></i>
+                                        <p>Clubs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Admin" asp-action="Logout">
+                                        <i class='bx bx-log-out-circle'></i>
+                                        <p>Logout</p>
+                                    </a>
+                                </li>
+                        }
+                    </ul>
+            </nav>
+            </div>
+        </aside>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">@ViewData["Title"]</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-inline text-black">
+                SchoolMs 111
+            </div>
+            <strong>&copy; 2023 - SchoolMS | Camresh-James |</strong> All rights reserved.
+        </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- REQUIRED SCRIPTS -->
+        <!-- jQuery -->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE -->
+        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+        <!-- Optional -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+        <!-- AOS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- Your custom scripts -->
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>

@@ -34,5 +34,10 @@ namespace SchoolMS.Data
         public DbSet<Lecturer> Lecturer { get; set; }
 
         public DbSet<Admin> Administrators { get; set; }
+
+        public DbSet<NoticeBoard>? NoticeBoard { get; set; }
+
+        public DbSet<Club>? Clubs { get; set; }
+        public DbSet<ClubMember>? ClubsMembers { get; set; }
     }
 }

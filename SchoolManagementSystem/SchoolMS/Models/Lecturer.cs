@@ -52,5 +52,10 @@ namespace SchoolMS.Models
         [Required]
         public string NationalId { get; set;}
 
+        public string ProfileImage { get; set; }
+
+        public string Password { get; set; }
+
+
     }
 }

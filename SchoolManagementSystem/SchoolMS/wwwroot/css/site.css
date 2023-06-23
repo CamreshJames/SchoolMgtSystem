@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 html {
   font-size: 14px;
 }
@@ -7,6 +11,32 @@ html {
     font-size: 16px;
   }
 }
+body {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
+
+header {
+    flex-shrink: 0;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+@media (max-width: 767px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
 
 html {
   position: relative;
@@ -14,9 +44,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
 }
-/* === removing default button style ===*/
+footer {
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
 .button {
     margin: 0;
     height: auto;
@@ -59,7 +95,9 @@ body {
 }
 .card {
     position: relative;
-    background-color:aliceblue;
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +112,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    /*gap: 20px;*/
     color: #000000;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -87,15 +125,19 @@ body {
 .content .para {
     line-height: 1.5;
 }
-
+footer.footer {
+    margin-top: auto;
+}
 .content .btn {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     padding: 10px;
     font-weight: 600;
     border: none;
     cursor: pointer;
-    background: linear-gradient(to right, #0C271F, #18453B);
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -105,15 +147,16 @@ body {
 }
 
 .card:hover {
-    background: linear-gradient(-45deg, #333333, #555555);
-}
-
-.card:hover {
+    background: #485563;
+    background: -webkit-linear-gradient(to right,#8e9eab,#8e9eab);
+    background: linear-gradient(to right, #8e9eab,#8e9eab);
     box-shadow: none;
 }
 .card:hover .btn {
-    color: #1D7D05;
-    background: #e8e8e8;
+    color: #e8e8e8;
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b,#3f4c6b);
+    background: linear-gradient(to right, #3f4c6b,#3f4c6b);
 }
 .card:hover .content {
     color: #e8e8e8;
@@ -126,3 +169,187 @@ body {
 .content .btn:active {
     box-shadow: none;
 }
+.bubble {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        color:darkred;
+    }
+
+    100% {
+        opacity: 1;
+        color:lawngreen;
+    }
+}
+
+#blinking-cursor {
+    animation: blinking 1s infinite;
+}
+.noticeboard-container {
+    margin-top: 20px;
+}
+
+.noticeboard {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.noticeboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.noticeboard-column {
+    width: calc(100% / @columnCount);
+    margin-bottom: 10px;
+}
+
+.noticeboard-column-heading {
+    font-weight: bold;
+}
+
+.noticeboard-column-subjects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .noticeboard-column-subjects li {
+        margin-bottom: 5px;
+    }
+
+.noticeboard-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.noticeboard-card-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.noticeboard-card-description {
+    margin-bottom: 10px;
+}
+
+.noticeboard-pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.noticeboard-pagination-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.noticeboard-card {
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif; /* Replace with your desired font */
+}
+
+.noticeboard-card-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.noticeboard-card-description {
+    margin-bottom: 10px;
+}
+
+.noticeboard-card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.noticeboard-card-sender-receiver {
+    display: flex;
+    align-items: center;
+}
+
+.noticeboard-card-sender,
+.noticeboard-card-receiver {
+    font-style: italic; /* Apply italic style to sender and receiver */
+    margin-right: 10px; /* Add spacing between sender and receiver */
+}
+
+.noticeboard-card.selected {
+    position: relative;
+}
+
+    .noticeboard-card.selected::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        pointer-events: none;
+        animation: borderGlow 2s infinite;
+    }
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 123,0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(150, 123, 255, 0.5);
+    }
+
+    100% {
+        
+        box-shadow: 0 0 0 0 rgba(40, 123, 255, 0.5);
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.text-danger {
+    color: red;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }

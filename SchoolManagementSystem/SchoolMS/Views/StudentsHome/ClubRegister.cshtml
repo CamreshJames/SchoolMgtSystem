@@ -1,0 +1,99 @@
+﻿@model SchoolMS.Models.ClubMember
+
+@{
+}
+
+<h1>Join</h1>
+
+<h4>ClubMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ClubRegister">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" value="@ViewBag.StudentName" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubName" class="control-label"></label>
+                <input asp-for="ClubName" class="form-control" id="clubNameInput" />
+                <span asp-validation-for="ClubName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Join" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-8 ml-auto">
+        <div class="card">
+            <div class="container">
+                @foreach (var club in ViewBag.ClubsList)
+                {
+                    <div class="row">
+                        <div class="col-2 m-auto">
+                            <p class="card-text">@club.ClubId</p>
+                        </div>
+                        <div class="col-3 m-auto">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="card-title">@club.Name</span>
+                                <button class="copy-club" data-club="@club.Name" style="font-size: 25px;"><i class='bx bx-copy'></i></button>
+                            </div>
+                        </div>
+                        <div class="col-6 m-auto">
+                            <p class="card-text">@club.Description</p>
+                        </div>
+                    </div>
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(function () {
+            $(".copy-club").click(function () {
+                var clubName = $(this).data("club");
+                copyToClipboard(clubName);
+                showCopiedEffect($(this));
+                return false;
+            });
+
+            function copyToClipboard(text) {
+                var tempInput = $("<input>");
+                $("body").append(tempInput);
+                tempInput.val(text).select();
+                document.execCommand("copy");
+                tempInput.remove();
+
+                // Add the copied club name to the club name input
+                $("#clubNameInput").val(text);
+            }
+
+            function showCopiedEffect(element) {
+                element.find("i").removeClass("bx-copy").addClass("bx-check");
+                element.attr("title", "Copied!");
+                setTimeout(function () {
+                    element.find("i").removeClass("bx-check").addClass("bx-copy");
+                    element.attr("title", "");
+                }, 1500);
+            }
+        });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
