@@ -1,0 +1,361 @@
+﻿@model IEnumerable<SchoolMS.Models.NoticeBoard>
+
+@{
+    ViewData["Title"] = "Noticeboard";
+    List<string> subjects = Model.Select(n => n.Subject).Distinct().ToList();
+    int columnCount = 2; // Number of columns to display
+    int subjectsPerColumn = (int)Math.Ceiling((double)subjects.Count / columnCount);
+    int subjectsCount = subjects.Count;
+}
+
+<div class="noticeboard-container">
+    <div class="noticeboard container">
+        <h1 class="text-center">Subjects</h1>
+        <hr />
+        <div class="noticeboard-header">
+            @for (int i = 0; i < columnCount; i++)
+            {
+                <div class="noticeboard-column">
+                    <div class="noticeboard-column-heading">
+                    </div>
+                    <ul class="noticeboard-column-subjects">
+                        @for (int j = i * subjectsPerColumn; j < (i + 1) * subjectsPerColumn && j < subjectsCount; j++)
+                        {
+                            <li>
+                                <span class="fw-bolder">@Html.Raw(j + 1)</span>
+                                <a class="subject-link" data-target="#notice-@j" href="#">@subjects[j]</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="noticeboard-body">
+            @foreach (var notice in Model.Select((value, index) => new { Value = value, Index = index }))
+            {
+                <div id="notice-@notice.Index" class="noticeboard-card position-relative">
+                    <div class="ribbon-wrapper ribbon-lg">
+                        <div class="ribbon bg-secondary">
+                            @(notice.Index + 1)
+                        </div>
+                    </div>
+                    <div class="noticeboard-card-content">
+                        <div class="noticeboard-card-title"><u>@notice.Value.Subject</u></div>
+                        <div class="noticeboard-card-description"><i class='bx bxs-hand-right'></i>&nbsp;@notice.Value.Description</div>
+                        <div class="noticeboard-card-details">
+                            <div class="noticeboard-card-sender-receiver">
+                                <span class="noticeboard-card-receiver">To: @notice.Value.Receiver</span>
+                                <span class="noticeboard-card-sender">From: @notice.Value.Sender</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+        @section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const subjectLinks = document.querySelectorAll('.subject-link');
+            const notices = document.querySelectorAll('.noticeboard-card');
+
+            subjectLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const target = this.getAttribute('data-target');
+                    const selectedNotice = document.querySelector(target);
+
+                    notices.forEach(function (notice) {
+                        if (notice === selectedNotice) {
+                            notice.classList.add('selected');
+                        } else {
+                            notice.classList.remove('selected');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
+@*model IEnumerable<SchoolMS.Models.NoticeBoard>
+
+@{
+    ViewData["Title"] = "Noticeboard";
+    List<string> subjects = Model.Select(n => n.Subject).Distinct().ToList();
+    int columnCount = 3; // Number of columns to display
+    int subjectsPerColumn = (int)Math.Ceiling((double)subjects.Count / columnCount);
+    int subjectsCount = subjects.Count;
+}
+
+<style>
+    /* Add your custom styles here */
+
+    .noticeboard-container {
+        margin-top: 20px;
+    }
+
+    .noticeboard {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .noticeboard-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .noticeboard-column {
+        width: calc(100% / @columnCount);
+        margin-bottom: 10px;
+    }
+
+    .noticeboard-column-heading {
+        font-weight: bold;
+    }
+
+    .noticeboard-column-subjects {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .noticeboard-column-subjects li {
+            margin-bottom: 5px;
+        }
+
+    .noticeboard-body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .noticeboard-card {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .noticeboard-card-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .noticeboard-card-description {
+        margin-bottom: 10px;
+    }
+
+    .noticeboard-pagination {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .noticeboard-pagination-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="noticeboard-container">
+    <div class="noticeboard container">
+        <div class="noticeboard-header">
+            @for (int i = 0; i < columnCount; i++)
+            {
+                <div class="noticeboard-column">
+                    <div class="noticeboard-column-heading">
+                        subjectsColumn @i
+                    </div>
+                    <ul class="noticeboard-column-subjects">
+                        @for (int j = i * subjectsPerColumn; j < (i + 1) * subjectsPerColumn && j < subjectsCount; j++)
+                        {
+                            <li>@subjects[j]</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="noticeboard-body">
+            <div id="noticeboardCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @{
+                        int noticeIndex = 0;
+                        foreach (var notice in Model)
+                        {
+                            @*if (noticeIndex % columnCount == 0)
+                            {
+                                <div class="carousel-item @(noticeIndex == 0 ? "active" : "")">
+                                    }
+
+                                    <div class="noticeboard-card">
+                                        <div class="noticeboard-card-title">@notice.Subject</div>
+                                        <div class="noticeboard-card-description">@notice.Description</div>
+                                        <div class="noticeboard-card-details">
+                                            <div class="noticeboard-card-sender">From: @notice.Sender</div>
+                                            <div class="noticeboard-card-receiver">To: @notice.Receiver</div>
+                                        </div>
+                                    </div>
+
+                                    @*if (noticeIndex % columnCount == columnCount - 1 || noticeIndex == Model.Count() - 1)
+                                    {
+                                </div>
+                            }
+
+                            noticeIndex++;
+                        }
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#noticeboardCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#noticeboardCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" ="true"></span>
+                    <span class="visually">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        // Activate Carousel
+        document.addEventListener("DOMContentLoaded", function () {
+            var carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(function (carousel) {
+                new bootstrap.Carousel(carousel);
+            });
+        });
+    </script>
+}
+
+
+
+
+@*<!--@model IEnumerable<SchoolMS.Models.NoticeBoard>
+
+@{
+    ViewData["Title"] = "Noticeboard";
+    List<string> subjects = Model.Select(n => n.Subject).Distinct().ToList();
+    int columnCount = 3; // Number of columns to display
+    int subjectsPerColumn = (int)Math.Ceiling((double)subjects.Count / columnCount);
+    int subjectsCount = subjects.Count;
+}
+
+<style>
+    /* Add your custom styles here */
+
+    .noticeboard-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .noticeboard {
+        width: 80%;
+        max-width: 1200px;
+        margin-top: 20px;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .noticeboard-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .noticeboard-column {
+        width: calc(100% / @columnCount);
+        margin-bottom: 10px;
+    }
+
+    .noticeboard-column-heading {
+        font-weight: bold;
+    }
+
+    .noticeboard-column-subjects {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .noticeboard-column-subjects li {
+            margin-bottom: 5px;
+        }
+
+    .noticeboard-body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .noticeboard-card {
+        width: calc(100% / @columnCount - 10px);
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .noticeboard-card-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .noticeboard-card-description {
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="noticeboard-container">
+    <div class="noticeboard">
+        <div class="noticeboard-header">
+            @for (int i = 0; i < columnCount; i++)
+            {
+                <div class="noticeboard-column">
+                    <div class="noticeboard-column-heading">
+                        Column @i
+                    </div>
+                    <ul class="noticeboard-column-subjects">
+                        @for (int j = i * subjectsPerColumn; j < (i + 1) * subjectsPerColumn && j < subjectsCount; j++)
+                        {
+                            <li>@subjects[j]</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="noticeboard-body">
+            @foreach (var notice in Model)
+            {
+                <div class="noticeboard-card">
+                    <div class="noticeboard-card-title">@notice.Subject</div>
+                    <div class="noticeboard-card-description">@notice.Description</div>
+                    <div class="noticeboard-card-date">@notice.Date</div>
+                    <div class="noticeboard-card-details">
+                        <div class="noticeboard-card-sender">From: @notice.Sender</div>
+                        <div class="noticeboard-card-receiver">To: @notice.Receiver</div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>-->
+*@

@@ -66,21 +66,7 @@ namespace SchoolMS.Controllers
             return View(student);
         }
 
-        // GET: Students/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Students == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Students.FindAsync(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-            return View(student);
-        }
+       
 
         public async Task<IActionResult> PendingStudents()
         {
@@ -154,6 +140,30 @@ namespace SchoolMS.Controllers
             }
             return View(student);
         }
+        public string GenerateRegistrationNumber()
+        {
+            // Define the range of characters and numbers to use for the registration number
+            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string numbers = "0123456789";
+
+            // Generate a random registration number
+            Random random = new Random();
+            string registrationNumber = "";
+
+            // Add two random letters from the character set
+            registrationNumber += characters[random.Next(characters.Length)];
+            registrationNumber += characters[random.Next(characters.Length)];
+
+            // Add four random numbers from the number set
+            for (int i = 0; i < 4; i++)
+            {
+                registrationNumber += numbers[random.Next(numbers.Length)];
+            }
+
+            // Return the generated registration number
+            return registrationNumber;
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Accept(int id, [Bind("Id,StudyProgram,Name,Email,PhoneNumber,Gender,GuardianName,GuardianPhone,Nationality,NationalId,County,Address")] PendingStudent student)
@@ -166,6 +176,21 @@ namespace SchoolMS.Controllers
                 {
                     return NotFound();
                 }
+
+                var program = pendingStudent.StudyProgram;
+                var pcode = await _context.Programs
+                    .Where(p => p.Name == program)
+                    .Select(p => p.Code)
+                    .FirstOrDefaultAsync();
+
+                // Generate a random registration number
+                string registrationNumber = GenerateRegistrationNumber();
+
+                // Combine pcode, registrationNumber, and current year as StudentId
+                int currentYear = DateTime.Now.Year;
+                string Studentid = $"{program}/{registrationNumber}/{currentYear}";
+
+                // Use the StudentId as needed
 
                 var newStudent = new Student
                 {
@@ -181,7 +206,10 @@ namespace SchoolMS.Controllers
                     Nationality = pendingStudent.Nationality,
                     NationalId = pendingStudent.NationalId,
                     County = pendingStudent.County,
-                    Address = pendingStudent.Address
+                    Address = pendingStudent.Address,
+                    ProfileImage = "~/ProfileImages/Profileplaceholder.png",
+                    StudentId = Studentid,
+                    Password  = pendingStudent.NationalId,
                 };
 
                 _context.Students.Add(newStudent);
@@ -194,9 +222,25 @@ namespace SchoolMS.Controllers
 
             return View(student);
         }
+        // GET: Students/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students.FindAsync(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return View(student);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,StudyProgram,Name,Email,PhoneNumber,Gender,DateOfBirth,GuardianName,GuardianPhone,Nationality,NationalId,County,Address")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, StudyProgram, StudentId, Name, Email, PhoneNumber, Gender, GuardianName, GuardianPhone, Nationality, NationalId, County, Address, ProfileImage, Password")] Student student)
         {
             if (id != student.Id)
             {
@@ -225,6 +269,7 @@ namespace SchoolMS.Controllers
             }
             return View(student);
         }
+
 
         // GET: Students/Delete/5
         public async Task<IActionResult> Delete(int? id)

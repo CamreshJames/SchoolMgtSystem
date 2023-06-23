@@ -32,7 +32,6 @@ namespace SchoolMS.Controllers
 
                 if (admin != null)
                 {
-                    ViewBag.Admin = admin;
                     ViewBag.AdminName = admin.Name;
                     ViewBag.AdminEmail = admin.Email;
 
@@ -86,7 +85,7 @@ namespace SchoolMS.Controllers
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // Removes all items from the session
+            HttpContext.Session.Remove("Username");
             return RedirectToAction("Login");
         }
 

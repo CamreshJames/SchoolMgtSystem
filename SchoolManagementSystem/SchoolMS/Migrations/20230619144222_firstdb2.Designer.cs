@@ -12,8 +12,8 @@ using SchoolMS.Data;
 namespace SchoolMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230616170318_hh")]
-    partial class hh
+    [Migration("20230619144222_firstdb2")]
+    partial class firstdb2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -143,6 +143,10 @@ namespace SchoolMS.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfileImage")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -366,7 +370,19 @@ namespace SchoolMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfileImage")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("StudentId")
                         .IsRequired()
                         .HasColumnType("text");
 

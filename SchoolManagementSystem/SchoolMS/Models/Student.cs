@@ -10,6 +10,8 @@ namespace SchoolMS.Models
         [Required]
         public string StudyProgram { get; set; }
 
+        public string StudentId { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -39,6 +41,10 @@ namespace SchoolMS.Models
 
         [Required]
         public string Address { get; set; }
+
+        public string ProfileImage { get; set; }
+
+        public string Password { get; set; }
     }
 
 }

@@ -1,0 +1,83 @@
+﻿@model CourseViewModel
+@{
+    ViewData["Title"] = "My Portal";
+}
+    
+<div class="container">
+    <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Welcome, @ViewBag.stdName!</h3>
+                    <p>Here you can find all the information related to your courses, grades, attendance, and more.</p>
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 col-6">
+                                <!-- Widget: Total Courses -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>@Model.Courses.Count()</h3>
+                                        <p>Total Courses</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <a asp-area="" asp-controller="StudentsHome" asp-action="Courses" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+
+                            <div class="col-lg-3 col-6">
+                                <!-- Widget: Grade Average -->
+                                <div class="small-box bg-success">
+                                    <div class="inner">
+                                        <h3>3.8</h3>
+                                        <p>Grade Average</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+
+                            <div class="col-lg-3 col-6">
+                                <!-- Widget: Attendance -->
+                                <div class="small-box bg-warning">
+                                    <div class="inner">
+                                        <h3>85%</h3>
+                                        <p>Attendance</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+
+                            <div class="col-lg-3 col-6">
+                                <!-- Widget: Notifications -->
+                                <div class="small-box bg-danger">
+                                    <div class="inner">
+                                        <h3>@ViewBag.NoticeCount</h3>
+                                        <p>Notifications</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <a asp-controller="StudentsHome" asp-action="NoticeBoard" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+
+                </div>
+            </div>
+    </div>
+</div>

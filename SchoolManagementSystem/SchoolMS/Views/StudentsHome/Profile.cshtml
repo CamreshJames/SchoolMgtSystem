@@ -1,0 +1,111 @@
+﻿@model SchoolMS.Models.Student
+@{
+    ViewData["Title"] = "Students Profile";
+}
+<style>
+    .profile-picture {
+        width: 200px;
+        margin-right: 30px;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .profile-data {
+        margin-top: 20px;
+    }
+
+    .profile-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .profile-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .profile-card-content {
+        flex-grow: 1;
+    }
+</style>
+<div class="container">
+    <div class="profile-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-primary h-100 profile-card">
+                    <div class="card-body text-center">
+                        <div class="profile-picture">
+                            @if (string.IsNullOrEmpty(ViewBag.ProfileImage))
+                            {
+                                <img class="profile-image" src="~/ProfileImages/Profileplaceholder.png" alt="Profile Picture">
+                            }
+                            else
+                            {
+                                <img class="profile-image" src="@ViewBag.ProfileImage" alt="Profile Picture">
+                            }
+                        </div>
+                        <h4 class="mt-3">@Html.DisplayFor(model => model.Name)</h4>
+                        <p>@Html.DisplayFor(model => model.StudentId)</p>
+                        <a asp-area="" asp-controller="StudentsHome" asp-action="UpdateProfile" class="btn btn-primary btn-block">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card card-primary h-100 profile-card">
+                    <div class="card-body profile-card-content">
+                        <div class="profile-data">
+                            <h1>@ViewBag.StudentName</h1>
+                            <div class="profile-details">
+                                <h4>Hello, @Html.DisplayFor(model => model.Name)!</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-3">Student ID</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.StudentId)</dd>
+
+                                    <dt class="col-sm-3">Name</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Name)</dd>
+
+                                    <dt class="col-sm-3">Study Program</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.StudyProgram)</dd>
+
+                                    <dt class="col-sm-3">Email</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+                                    <dt class="col-sm-3">Phone Number</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+
+                                    <dt class="col-sm-3">Gender</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Gender)</dd>
+
+                                    <dt class="col-sm-3">Guardian Name</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.GuardianName)</dd>
+
+                                    <dt class="col-sm-3">Guardian Phone</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.GuardianPhone)</dd>
+
+                                    <dt class="col-sm-3">Nationality</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Nationality)</dd>
+
+                                    <dt class="col-sm-3">National ID</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.NationalId)</dd>
+
+                                    <dt class="col-sm-3">County</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.County)</dd>
+
+                                    <dt class="col-sm-3">Address</dt>
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

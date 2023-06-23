@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\SchoolMS.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Flow Diagram.drawio",
-      "PackagePath": "staticwebassets\\Images\\Flow Diagram.drawio"
-    },
-    {
       "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Screenshot 2023-06-14 215229.png",
       "PackagePath": "staticwebassets\\Images\\Screenshot 2023-06-14 215229.png"
     },
@@ -17,8 +13,16 @@
       "PackagePath": "staticwebassets\\Images\\Screenshot 2023-06-14 215514.png"
     },
     {
-      "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Untitled Diagram.drawio",
-      "PackagePath": "staticwebassets\\Images\\Untitled Diagram.drawio"
+      "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\Placeholder.png",
+      "PackagePath": "staticwebassets\\ProfileImages\\Placeholder.png"
+    },
+    {
+      "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\download.png",
+      "PackagePath": "staticwebassets\\ProfileImages\\download.png"
+    },
+    {
+      "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\profileplaceholder.png",
+      "PackagePath": "staticwebassets\\ProfileImages\\profileplaceholder.png"
     },
     {
       "Id": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\css\\site.css",

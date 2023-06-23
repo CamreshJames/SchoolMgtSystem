@@ -28,6 +28,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/ClubMembers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1Yk1lbWJlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/ClubMembers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1Yk1lbWJlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/ClubMembers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1Yk1lbWJlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/ClubMembers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1Yk1lbWJlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/ClubMembers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1Yk1lbWJlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Clubs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Clubs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Clubs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Clubs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Clubs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Courses/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +94,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/LecturersHome/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzSG9tZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/LecturersHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/LecturersHome/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/LecturersHome/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzSG9tZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/LecturersHome/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzSG9tZVxVcGRhdGVQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Lecturers/Accept.cshtml]
@@ -92,6 +152,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJzXFJlamVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/NoticeBoard/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNlQm9hcmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/NoticeBoard/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNlQm9hcmRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/NoticeBoard/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNlQm9hcmRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/NoticeBoard/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNlQm9hcmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/NoticeBoard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWNlQm9hcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/PendingLecturer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZGluZ0xlY3R1cmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -126,6 +206,42 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/ClubRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXENsdWJSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/Courses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXENvdXJzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/NoticeBoard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXE5vdGljZUJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/Status.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXFN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/StatusDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXFN0YXR1c0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/StudentsHome/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNIb21lXFVwZGF0ZVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/njeng/SchoolMgtSystem/SchoolManagementSystem/SchoolMS/Views/Students/Accept.cshtml]

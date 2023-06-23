@@ -168,7 +168,9 @@ namespace SchoolMS.Controllers
                     OfficeLocation = pendingLecturer.OfficeLocation,
                     OfficeHours = pendingLecturer.OfficeHours,
                     Nationality = pendingLecturer.Nationality,
-                    NationalId = pendingLecturer.NationalId
+                    NationalId = pendingLecturer.NationalId,
+                    ProfileImage = "",
+                    Password = pendingLecturer.NationalId
                 };
 
                 _context.Lecturer.Add(newLecturer);

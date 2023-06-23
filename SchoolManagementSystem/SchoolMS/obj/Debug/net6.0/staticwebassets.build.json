@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "d+K5qdHyLUaMcD9IGF1qMlwyDjnmkVbChtVsQI6UmRY=",
+  "Hash": "69CuoTvX6yU/iTyuynf6qXjdncWCGr4o8nRYCcrfP0A=",
   "Source": "SchoolMS",
   "BasePath": "_content/SchoolMS",
   "Mode": "Default",
@@ -102,23 +102,6 @@
       "OriginalItemSpec": "wwwroot\\favicon1.png"
     },
     {
-      "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Flow Diagram.drawio",
-      "SourceId": "SchoolMS",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\",
-      "BasePath": "_content/SchoolMS",
-      "RelativePath": "Images/Flow Diagram.drawio",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Flow Diagram.drawio"
-    },
-    {
       "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Screenshot 2023-06-14 215229.png",
       "SourceId": "SchoolMS",
       "SourceType": "Discovered",
@@ -151,23 +134,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Screenshot 2023-06-14 215514.png"
-    },
-    {
-      "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\Images\\Untitled Diagram.drawio",
-      "SourceId": "SchoolMS",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\",
-      "BasePath": "_content/SchoolMS",
-      "RelativePath": "Images/Untitled Diagram.drawio",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Untitled Diagram.drawio"
     },
     {
       "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\js\\site.js",
@@ -1154,6 +1120,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\download.png",
+      "SourceId": "SchoolMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\",
+      "BasePath": "_content/SchoolMS",
+      "RelativePath": "ProfileImages/download.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfileImages\\download.png"
+    },
+    {
+      "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\Placeholder.png",
+      "SourceId": "SchoolMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\",
+      "BasePath": "_content/SchoolMS",
+      "RelativePath": "ProfileImages/Placeholder.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfileImages\\Placeholder.png"
+    },
+    {
+      "Identity": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\ProfileImages\\profileplaceholder.png",
+      "SourceId": "SchoolMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\njeng\\SchoolMgtSystem\\SchoolManagementSystem\\SchoolMS\\wwwroot\\",
+      "BasePath": "_content/SchoolMS",
+      "RelativePath": "ProfileImages/profileplaceholder.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfileImages\\profileplaceholder.png"
     }
   ]
 }

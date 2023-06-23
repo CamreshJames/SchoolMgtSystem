@@ -12,8 +12,8 @@ using SchoolMS.Data;
 namespace SchoolMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230616132106_initialll")]
-    partial class initialll
+    [Migration("20230623123014_clubsx")]
+    partial class clubsx
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,10 +110,6 @@ namespace SchoolMS.Migrations
                         .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.Property<string>("DateOfBirth")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
@@ -142,11 +138,19 @@ namespace SchoolMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfileImage")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -169,6 +173,35 @@ namespace SchoolMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Lecturer");
+                });
+
+            modelBuilder.Entity("SchoolMS.Models.NoticeBoard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Receiver")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NoticeBoard");
                 });
 
             modelBuilder.Entity("SchoolMS.Models.PendingLecturer", b =>
@@ -199,8 +232,9 @@ namespace SchoolMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("NationalID")
-                        .HasColumnType("bigint");
+                    b.Property<string>("NationalId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
@@ -369,7 +403,19 @@ namespace SchoolMS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfileImage")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("StudentId")
                         .IsRequired()
                         .HasColumnType("text");
 
